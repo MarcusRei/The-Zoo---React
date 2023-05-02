@@ -3,9 +3,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 2em;
 }
 
 .animals__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1em;
   list-style: none;
   padding: 0;
 }

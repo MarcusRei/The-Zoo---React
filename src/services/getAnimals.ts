@@ -1,11 +1,11 @@
 import axios from "axios";
-import { IAnimalsResponse } from "../models/IAnimalsResponse";
+import { IAnimalResponse } from "../models/IAnimalResponse";
+import { IAnimal } from "../models/IAnimal";
 
-export async function getAnimals() {
+export async function getAnimals(): Promise<IAnimal[]> {
   const response = await axios.get(
     "https://animals.azurewebsites.net/api/animals"
   );
 
-  const data = response.data;
-  return data;
+  return response.data;
 }
