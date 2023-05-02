@@ -1,0 +1,11 @@
+.animals__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.animals__list {
+  list-style: none;
+  padding: 0;
+}
