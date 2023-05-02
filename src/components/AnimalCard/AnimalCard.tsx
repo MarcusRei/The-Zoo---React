@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { IAnimal } from "../../models/IAnimal";
 import "./AnimalCard.css";
 
@@ -29,7 +30,7 @@ export const AnimalCard = ({
   }
   const altText = "Bild på " + name;
   return (
-    <div className="animal">
+    <Link to={"animals/:id"} className="animal">
       <img
         className="animal__img"
         src={imageUrl}
@@ -45,6 +46,6 @@ export const AnimalCard = ({
       </p>
       <p className="animal__desc">{shortDescription}</p>
       <p>Senast matad: {lastFed}</p>
-    </div>
+    </Link>
   );
 };

@@ -4,10 +4,13 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  text-decoration: none;
+  color: white;
 }
 
 .animal:hover {
   background-color: rgba(53, 53, 53, 0.203);
+  color: rgb(118, 118, 118);
 }
 
 .animal__img {

@@ -6,7 +6,8 @@ export const Home = () => {
   return (
     <div className="home">
       <NavBar></NavBar>
-      <h2 className="welcome-message">Welcome to the Zoo</h2>
+      <h2 className="welcome-message">Välkommen till Mackes Zoo!</h2>
+      <p>Här har vi en härlig blandning av små krabater som man kan mata</p>
     </div>
   );
 };
