@@ -8,11 +8,6 @@
   color: white;
 }
 
-.animal:hover {
-  background-color: rgba(53, 53, 53, 0.203);
-  color: rgb(118, 118, 118);
-}
-
 .animal__img {
   max-width: 200px;
   max-height: 200px;

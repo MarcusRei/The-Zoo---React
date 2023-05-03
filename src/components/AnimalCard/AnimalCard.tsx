@@ -28,9 +28,11 @@ export const AnimalCard = ({
     target.onerror = null;
     target.src = "../../assets/placeholder_square.jpg";
   }
+
   const altText = "Bild på " + name;
+
   return (
-    <Link to={"animals/:id"} className="animal">
+    <>
       <img
         className="animal__img"
         src={imageUrl}
@@ -46,6 +48,6 @@ export const AnimalCard = ({
       </p>
       <p className="animal__desc">{shortDescription}</p>
       <p>Senast matad: {lastFed}</p>
-    </Link>
+    </>
   );
 };

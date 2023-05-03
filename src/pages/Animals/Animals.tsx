@@ -4,7 +4,8 @@ import { NavBar } from "../../components/NavBar/NavBar";
 import { IAnimal } from "../../models/IAnimal";
 import { getAnimals } from "../../services/getAnimals";
 import "./Animals.css";
-import { getFromLS } from "../../utils/LSFunctions";
+import { getFromLS, addToLS } from "../../utils/LSFunctions";
+import { Link } from "react-router-dom";
 
 export const Animals = () => {
   const [animalState, setAnimalState] = useState<IAnimal[]>(
@@ -15,15 +16,23 @@ export const Animals = () => {
     getAnimals().then((animals) => setAnimalState(animals));
   }, []);
 
-  console.log("Listan med djur ", animalState);
+  addToLS("animals", animalState);
 
   return (
     <div className="animals__container">
       <NavBar></NavBar>
       <h2>Det här är våra djur!</h2>
       <ul className="animals__list">
-        {animalState.map((animal) => {
-          return <AnimalCard {...animal}></AnimalCard>;
+        {animalState.map((animal, index) => {
+          return (
+            <Link
+              key={index}
+              to={animal.id.toString()}
+              className="animals__link"
+            >
+              <AnimalCard {...animal}></AnimalCard>
+            </Link>
+          );
         })}
       </ul>
     </div>

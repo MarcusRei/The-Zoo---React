@@ -14,3 +14,13 @@
   list-style: none;
   padding: 0;
 }
+
+.animals__link {
+  background-color: rgb(53, 53, 53);
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-decoration: none;
+  color: white;
+}
