@@ -1,4 +1,4 @@
-import { getFromLS } from "../../utils/LSFunctions";
+import { addToLS, getFromLS } from "../../utils/LSFunctions";
 import { IAnimal } from "../../models/IAnimal";
 import "./DetailedAnimalCard.css";
 import { useEffect, useState } from "react";
@@ -6,6 +6,7 @@ import { DateTime } from "luxon";
 
 export const DetailedAnimalCard = ({ ...animal }: IAnimal) => {
   const [animalState, setAnimalState] = useState(animal);
+  const animals = getFromLS("animals");
 
   function handleImageError(e: React.SyntheticEvent<HTMLImageElement>) {
     const target = e.target as HTMLImageElement;

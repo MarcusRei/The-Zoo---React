@@ -12,13 +12,15 @@ export const Animals = () => {
     getFromLS("animals") || []
   );
 
-  if (animalState.length === 0) {
-    useEffect(() => {
+  useEffect(() => {
+    if (animalState.length === 0) {
       getAnimals().then((animals) => setAnimalState(animals));
-    }, []);
+    }
+  }, []);
 
-    addToLS("animals", animalState);
-  }
+  addToLS("animals", animalState);
+
+  console.log("Nu är vårt animalState: ", animalState);
 
   return (
     <div className="animals__container">
