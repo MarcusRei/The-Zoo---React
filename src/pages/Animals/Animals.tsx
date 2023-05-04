@@ -9,14 +9,16 @@ import { Link } from "react-router-dom";
 
 export const Animals = () => {
   const [animalState, setAnimalState] = useState<IAnimal[]>(
-    getFromLS("animalList") || []
+    getFromLS("animals") || []
   );
 
-  useEffect(() => {
-    getAnimals().then((animals) => setAnimalState(animals));
-  }, []);
+  if (animalState.length === 0) {
+    useEffect(() => {
+      getAnimals().then((animals) => setAnimalState(animals));
+    }, []);
 
-  addToLS("animals", animalState);
+    addToLS("animals", animalState);
+  }
 
   return (
     <div className="animals__container">
