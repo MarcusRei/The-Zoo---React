@@ -2,6 +2,7 @@ import { useParams } from "react-router";
 import { IAnimal } from "../models/IAnimal";
 import { getFromLS } from "../utils/LSFunctions";
 import { DetailedAnimalCard } from "../components/DetailedAnimalCard/DetailedAnimalCard";
+import { NavBar } from "../components/NavBar/NavBar";
 
 export const SpecificAnimal = () => {
   const params = useParams();
@@ -16,8 +17,18 @@ export const SpecificAnimal = () => {
 
   console.log(currentAnimal);
   if (currentAnimal === undefined) {
-    return <h2>Oj nu vart det fel igen, välj ett annat djur!</h2>;
+    return (
+      <>
+        <NavBar></NavBar>
+        <h2>Oj nu vart det fel igen, välj ett annat djur!</h2>
+      </>
+    );
   } else {
-    return <DetailedAnimalCard {...currentAnimal}></DetailedAnimalCard>;
+    return (
+      <>
+        <NavBar></NavBar>
+        <DetailedAnimalCard {...currentAnimal}></DetailedAnimalCard>
+      </>
+    );
   }
 };

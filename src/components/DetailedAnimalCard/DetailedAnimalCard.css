@@ -1,4 +1,16 @@
+.animal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+
 .animal__img {
-  max-width: 400px;
-  max-height: 400px;
+  margin: 1em;
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.animal__desc {
+  width: 50%;
 }
