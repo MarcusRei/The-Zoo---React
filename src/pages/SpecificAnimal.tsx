@@ -8,14 +8,14 @@ export const SpecificAnimal = () => {
   const params = useParams();
 
   const animals = getFromLS("animals");
-  console.log("Det här är ", animals);
-  console.log(params.id);
+  /* console.log("Det här är ", animals);
+  console.log(params.id); */
 
   const currentAnimal = animals.find((animal: IAnimal) => {
     return animal.id.toString() === params.id;
   });
 
-  console.log(currentAnimal);
+  //console.log(currentAnimal);
   if (currentAnimal === undefined) {
     return (
       <>

@@ -20,7 +20,7 @@ export const Animals = () => {
 
   addToLS("animals", animalState);
 
-  console.log("Nu är vårt animalState: ", animalState);
+  //console.log("Nu är vårt animalState: ", animalState);
 
   return (
     <div className="animals__container">

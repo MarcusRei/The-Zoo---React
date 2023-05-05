@@ -6,7 +6,13 @@ import { DateTime } from "luxon";
 
 export const DetailedAnimalCard = ({ ...animal }: IAnimal) => {
   const [animalState, setAnimalState] = useState(animal);
-  const animals = getFromLS("animals");
+  const [animals, setAnimals] = useState(getFromLS("animals"));
+  const [feedText, setFeedText] = useState(`Mata ${animalState.name}!`);
+  console.log("animals från början: ", animals);
+
+  const happyCat: string = "/assets/happy_cat_alpha.png";
+  const angryCat: string = "/assets/angry_cat_alpha.png";
+  const sadCat: string = "/assets/sad_cat_alpha.png";
 
   function handleImageError(e: React.SyntheticEvent<HTMLImageElement>) {
     const target = e.target as HTMLImageElement;
@@ -21,8 +27,29 @@ export const DetailedAnimalCard = ({ ...animal }: IAnimal) => {
       includeOffset: false,
     }) as string;
 
-    setAnimalState({ ...animal, lastFed: currentTime });
+    setAnimalState({ ...animal, lastFed: currentTime, isFed: true });
+
+    const animalIndex = animals.findIndex(
+      (animal: IAnimal) => animal.id === animalState.id
+    );
+
+    const updatedAnimals: IAnimal[] = [...animals];
+
+    updatedAnimals[animalIndex] = {
+      ...animal,
+      lastFed: currentTime,
+      isFed: true,
+    };
+
+    setAnimals(updatedAnimals);
+
+    addToLS("animals", updatedAnimals);
   }
+
+  /* if (animalState.isFed) {
+    setFeedText(`${animalState.name} är mätt!`);
+  } */
+  console.log("Den nya listan: ", animals);
 
   return (
     <div className={"animal"}>
@@ -42,7 +69,30 @@ export const DetailedAnimalCard = ({ ...animal }: IAnimal) => {
       <p>
         Blev senast matad: <strong>{animalState.lastFed}</strong>
       </p>
-      <button onClick={feedAnimal}>Mata {animal.name}!</button>
+      <div className="button__container">
+        <button
+          className={animalState.isFed ? "fed" : "hungry"}
+          onClick={() => {
+            if (!animalState.isFed) {
+              feedAnimal();
+            }
+          }}
+          disabled={animalState.isFed}
+        >
+          {feedText}
+        </button>
+        <img
+          className="button__img"
+          src={
+            animalState.isFed
+              ? happyCat
+              : !animalState.isFed
+              ? angryCat
+              : sadCat
+          }
+          alt=""
+        />
+      </div>
     </div>
   );
 };

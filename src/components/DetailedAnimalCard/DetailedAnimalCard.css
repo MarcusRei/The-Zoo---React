@@ -14,3 +14,24 @@
 .animal__desc {
   width: 50%;
 }
+
+.button__container {
+  display: flex;
+  place-items: center;
+}
+
+.button__img {
+  max-width: 80px;
+}
+
+button {
+  height: 50px;
+}
+
+.fed {
+  background-color: rgba(235, 64, 64, 0.913);
+}
+
+.hungry {
+  background-color: rgba(33, 119, 33, 0.841);
+}
