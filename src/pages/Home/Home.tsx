@@ -7,7 +7,7 @@ export const Home = () => {
   return (
     <div className="home">
       <NavBar></NavBar>
-      <FeedingNotification name="Majsan" imageUrl="ididi"></FeedingNotification>
+      <FeedingNotification></FeedingNotification>
       <h2 className="welcome-message">Välkommen till Mackes Zoo!</h2>
       <p>Här har vi en härlig blandning av små krabater som man kan mata</p>
       <img src="/assets/zoo.png" alt="Illustartion of a Lion" />
