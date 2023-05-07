@@ -2,13 +2,13 @@ import { addToLS, getFromLS } from "../../utils/LSFunctions";
 import { IAnimal } from "../../models/IAnimal";
 import "./DetailedAnimalCard.css";
 import { useEffect, useState } from "react";
-import { DateTime } from "luxon";
+import { DateTime, Interval } from "luxon";
 
 export const DetailedAnimalCard = ({ ...animal }: IAnimal) => {
   const [animalState, setAnimalState] = useState(animal);
   const [animals, setAnimals] = useState(getFromLS("animals"));
   const [feedText, setFeedText] = useState(`Mata ${animalState.name}!`);
-  console.log("animals från början: ", animals);
+  //console.log("animals från början: ", animals);
 
   const happyCat: string = "/assets/happy_cat_alpha.png";
   const angryCat: string = "/assets/angry_cat_alpha.png";
@@ -18,6 +18,38 @@ export const DetailedAnimalCard = ({ ...animal }: IAnimal) => {
     const target = e.target as HTMLImageElement;
     target.onerror = null;
     target.src = "/assets/placeholder_square.jpg";
+  }
+
+  useEffect(() => {
+    checkFoodLevel();
+  }, []);
+
+  function checkFoodLevel() {
+    const lastFeeding = DateTime.fromISO(animal.lastFed);
+
+    //const hungryAgain = lastFed.plus({ hours: 3 });
+
+    const currentTime = DateTime.now();
+    const interval = Interval.fromDateTimes(lastFeeding, currentTime);
+
+    if (interval.length("hours") > 3) {
+      setAnimalState({ ...animal, isFed: false });
+
+      const animalIndex = animals.findIndex(
+        (animal: IAnimal) => animal.id === animalState.id
+      );
+
+      const updatedAnimals: IAnimal[] = [...animals];
+
+      updatedAnimals[animalIndex] = {
+        ...animal,
+        isFed: false,
+      };
+
+      setAnimals(updatedAnimals);
+
+      addToLS("animals", updatedAnimals);
+    }
   }
 
   function feedAnimal() {
@@ -49,7 +81,7 @@ export const DetailedAnimalCard = ({ ...animal }: IAnimal) => {
   /* if (animalState.isFed) {
     setFeedText(`${animalState.name} är mätt!`);
   } */
-  console.log("Den nya listan: ", animals);
+  //console.log("Den nya listan: ", animals);
 
   return (
     <div className={"animal"}>
