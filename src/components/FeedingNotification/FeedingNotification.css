@@ -4,6 +4,7 @@
   line-height: normal;
   position: absolute;
   left: 10px;
+  top: 10px;
   gap: 0.5em;
 }
 .notification__container--inner {
@@ -23,4 +24,8 @@
 .notification__img {
   max-width: 50px;
   font-size: x-small;
+}
+
+.notification__fed--message {
+  font-size: small;
 }
