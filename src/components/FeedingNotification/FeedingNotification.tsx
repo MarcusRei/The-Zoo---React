@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IAnimal } from "../../models/IAnimal";
 import { getFromLS } from "../../utils/LSFunctions";
 import "./FeedingNotification.css";
@@ -9,10 +9,11 @@ export const FeedingNotification = () => {
 
   const [hungryAnimals, setHungryAnimals] = useState<IAnimal[]>([]);
 
-  // Blir oändlig loop om alla är mätta
-  /* if (hungryAnimals.length === 0) {
+  const [showFeed, setShowFeed] = useState(false);
+
+  useEffect(() => {
     checkHunger();
-  } */
+  }, []);
 
   setInterval(() => {
     checkHunger();
@@ -29,33 +30,46 @@ export const FeedingNotification = () => {
     setHungryAnimals(filteredAnimals);
   }
 
-  if (hungryAnimals.length > 0) {
+  function toggleFeed() {
+    setShowFeed(!showFeed);
+  }
+
+  if (!showFeed) {
     return (
       <div className="notification__container--outer">
-        {hungryAnimals.map((animal) => {
-          const altText = "Bild på " + animal.name;
-          return (
-            <div key={animal.id} className="notification__container--inner">
-              <img
-                className="notification__img"
-                src={animal.imageUrl}
-                alt={altText}
-              />
-              <p className="notification__text">
-                {animal.name} behöver bli matad!
-              </p>
-            </div>
-          );
-        })}
+        <button onClick={toggleFeed}>Visa feed ➡️</button>
       </div>
     );
   } else {
-    return (
-      <div className="notification__container--outer">
-        <h2 className="notification__fed--message">
-          Alla djur är mätta och belåtna!
-        </h2>
-      </div>
-    );
+    if (hungryAnimals.length > 0) {
+      return (
+        <div className="notification__container--outer">
+          <button onClick={toggleFeed}>⬅️ Stäng Feed</button>
+          {hungryAnimals.map((animal) => {
+            const altText = "Bild på " + animal.name;
+            return (
+              <div key={animal.id} className="notification__container--inner">
+                <img
+                  className="notification__img"
+                  src={animal.imageUrl}
+                  alt={altText}
+                />
+                <p className="notification__text">
+                  {animal.name} behöver bli matad!
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      );
+    } else {
+      return (
+        <div className="notification__container--outer">
+          <h2 className="notification__fed--message">
+            Alla djur är mätta och belåtna!
+          </h2>
+        </div>
+      );
+    }
   }
 };
