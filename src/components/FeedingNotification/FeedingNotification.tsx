@@ -9,6 +9,7 @@ export const FeedingNotification = () => {
 
   const [hungryAnimals, setHungryAnimals] = useState<IAnimal[]>([]);
 
+  // Blir oändlig loop om alla är mätta
   /* if (hungryAnimals.length === 0) {
     checkHunger();
   } */
