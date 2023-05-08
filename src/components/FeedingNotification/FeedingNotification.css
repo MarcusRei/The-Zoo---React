@@ -1,0 +1,31 @@
+.notification__container--outer {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  gap: 0.5em;
+}
+.notification__container--inner {
+  background-color: rgba(240, 17, 17, 0.354);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+}
+
+.notification__text {
+  font-size: small;
+}
+
+.notification__img {
+  max-width: 50px;
+  font-size: x-small;
+}
+
+.notification__fed--message {
+  font-size: small;
+}

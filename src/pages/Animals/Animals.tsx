@@ -6,6 +6,7 @@ import { getAnimals } from "../../services/getAnimals";
 import "./Animals.css";
 import { getFromLS, addToLS } from "../../utils/LSFunctions";
 import { Link } from "react-router-dom";
+import { FeedingNotification } from "../../components/FeedingNotification/FeedingNotification";
 
 export const Animals = () => {
   const [animalState, setAnimalState] = useState<IAnimal[]>(
@@ -25,6 +26,7 @@ export const Animals = () => {
   return (
     <div className="animals__container">
       <NavBar></NavBar>
+      <FeedingNotification></FeedingNotification>
       <h2>Det här är våra djur!</h2>
       <ul className="animals__list">
         {animalState.map((animal, index) => {
