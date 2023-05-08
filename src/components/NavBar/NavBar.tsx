@@ -6,10 +6,10 @@ export const NavBar = () => {
     <nav>
       <ul className="nav__list">
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/">Hem</Link>
         </li>
         <li>
-          <Link to="/animals">Animals</Link>
+          <Link to="/animals">Våra djur</Link>
         </li>
       </ul>
     </nav>
