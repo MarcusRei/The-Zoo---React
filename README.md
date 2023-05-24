@@ -17,8 +17,9 @@ We were given an API endpoint which returned a list of animal objects. Our goal 
 
 ### ✔️ Criterias for passing the assignment
 
-[x] Create a SPA with React and Typescript which contains a page where all the animals are presented with their name and a short description. You should be able to click on a animal to see more info about the selected animal.
+[x] Create a SPA with React and Typescript which contains a page where all the animals are presented with their name, their image and a short description. You should be able to click on a animal to see more info about the selected animal.
 [x] From the animals individual page you should be able to feed the animal via a button. When this button is clicked it should be made clear that the animal has been fed and the button should be disabled. You also need to display the time stamp of when the animal was fed.
+[x] Some of the animals have corrupted URL paths, find a way to replace those images with something
 
 ### ➕ Criterias for extra credit
 
