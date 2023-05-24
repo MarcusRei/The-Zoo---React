@@ -13,6 +13,8 @@ We were given an API endpoint which returned a list of animal objects. Our goal 
 ![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E) ![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB.svg?style=for-the-badge&logo=React&logoColor=black)
 
+(I have also used luxon to handle the time and date management but they had no good badge to use)
+
 ## Criterias for the grades
 
 ### ✔️ Criterias for passing the assignment
