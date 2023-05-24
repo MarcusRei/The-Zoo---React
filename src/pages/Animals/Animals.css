@@ -1,0 +1,27 @@
+.animals__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  position: relative;
+}
+
+.animals__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1em;
+  list-style: none;
+  padding: 0;
+}
+
+.animals__link {
+  background-color: rgb(53, 53, 53);
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-decoration: none;
+  color: white;
+}
