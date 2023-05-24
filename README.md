@@ -1,2 +1,26 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/lARfQeTG)
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=11034248&assignment_repo_type=AssignmentRepo)
+# 🐱🐵🐼 The Zoo
+
+## 📜 Description of the assignment
+
+This was an assignment for the course Javascript fördjupning as part of my education (Frontend developer) at Medieinstitutet.
+
+## Setup
+
+We were given an API endpoint which returned a list of animal objects. Our goal was to create a Single Page Application that presents these animals and where you can feed them.
+
+## 🚀 Tech Stack
+
+![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E) ![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB.svg?style=for-the-badge&logo=React&logoColor=black)
+
+## Criterias for the grades
+
+### ✔️ Criterias for passing the assignment
+
+[x] Create a SPA with React and Typescript which contains a page where all the animals are presented with their name and a short description. You should be able to click on a animal to see more info about the selected animal.
+[x] From the animals individual page you should be able to feed the animal via a button. When this button is clicked it should be made clear that the animal has been fed and the button should be disabled. You also need to display the time stamp of when the animal was fed.
+
+### ➕ Criterias for extra credit
+
+[x] When you refresh the page your application needs to check if it has been more than three hours since the animal was fed and if so reset the feeding and make the feed button active again.
+[x] You should present some kind of notification on the homepage that an animal needs to be fed if it has been more than three hours.
